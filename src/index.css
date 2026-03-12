@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@300;400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 152 40% 8%;
+    --foreground: 43 90% 85%;
+
+    --card: 152 35% 12%;
+    --card-foreground: 43 90% 85%;
+
+    --popover: 152 35% 12%;
+    --popover-foreground: 43 90% 85%;
+
+    --primary: 43 85% 55%;
+    --primary-foreground: 152 40% 8%;
+
+    --secondary: 152 30% 18%;
+    --secondary-foreground: 43 80% 80%;
+
+    --muted: 152 25% 15%;
+    --muted-foreground: 43 30% 60%;
+
+    --accent: 43 85% 55%;
+    --accent-foreground: 152 40% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 43 40% 25%;
+    --input: 152 25% 20%;
+    --ring: 43 85% 55%;
+
+    --radius: 0.75rem;
+
+    --gold: 43 85% 55%;
+    --gold-light: 43 90% 70%;
+    --gold-glow: 43 100% 60%;
+    --emerald-deep: 152 50% 6%;
+    --emerald: 152 40% 15%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-arabic: 'Amiri', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --shadow-gold: 0 0 30px hsl(43 85% 55% / 0.15);
+    --shadow-gold-lg: 0 0 60px hsl(43 85% 55% / 0.2);
+    --glow-gold: 0 0 20px hsl(43 85% 55% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .text-gold-light {
+    color: hsl(var(--gold-light));
+  }
+
+  .bg-emerald-deep {
+    background-color: hsl(var(--emerald-deep));
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-gold-lg {
+    box-shadow: var(--shadow-gold-lg);
+  }
+
+  .glow-gold {
+    box-shadow: var(--glow-gold);
+    filter: drop-shadow(0 0 10px hsl(43 85% 55% / 0.3));
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gold {
+    border-color: hsl(var(--gold) / 0.3);
+  }
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
